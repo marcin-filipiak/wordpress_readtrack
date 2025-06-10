@@ -1,0 +1,27 @@
+.readtrack-time {
+    font-size: 14px;
+    background: #f0f4f8;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    border-left: 4px solid #0073aa;
+    color: #333;
+    font-family: sans-serif;
+}
+
+.readtrack-progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #ddd;
+    z-index: 9999;
+}
+
+.readtrack-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #0073aa;
+    transition: width 0.2s ease;
+}
+
