@@ -29,13 +29,8 @@ Estimated reading time: %minutes% minutes
 
 ## Requirements
 
-- WordPress 5.0 or higher
+- WordPress 5.8 or higher
 - PHP 7.2 or higher
-
-## Screenshots
-
-1. Reading time and progress bar above a post.
-2. Plugin settings screen in the WordPress admin panel.
 
 ## License
 
