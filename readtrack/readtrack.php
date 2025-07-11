@@ -3,7 +3,7 @@
  * Plugin Name:       ReadTrack
  * Plugin URI:        https://github.com/marcin-filipiak/wordpress_readtrack
  * Description:       Adds a reading progress bar and estimated reading time above post content.
- * Version:           1.1
+ * Version:           1.2
  * Requires at least: 5.8
  * Requires PHP:      7.2
  * Author:            Marcin Filipiak
@@ -15,8 +15,6 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('READTRACK_CONFIG_FILE', plugin_dir_path(__FILE__) . 'config.txt');
-
 // ===========================
 // FRONTEND
 // ===========================
@@ -27,13 +25,13 @@ function readtrack_enqueue_assets() {
         'readtrack-style',
         plugin_dir_url(__FILE__) . 'assets/readtrack.css',
         array(),
-        '1.1'
+        '1.2'
     );
     wp_enqueue_script(
         'readtrack-script',
         plugin_dir_url(__FILE__) . 'assets/readtrack.js',
         array(),
-        '1.1',
+        '1.2',
         true
     );
 }
@@ -54,11 +52,9 @@ function readtrack_add_elements($content) {
 }
 
 function readtrack_get_custom_text() {
-    if (!file_exists(READTRACK_CONFIG_FILE)) {
-        return '⏱️ Estimated reading time: %minutes% min';
-    }
-    $text = trim(file_get_contents(READTRACK_CONFIG_FILE));
-    return $text ?: '⏱️ Estimated reading time: %minutes% min';
+    $default = '⏱️ Estimated reading time: %minutes% min';
+    $saved = get_option('readtrack_custom_text', '');
+    return $saved !== '' ? $saved : $default;
 }
 
 // ===========================
@@ -79,7 +75,7 @@ function readtrack_admin_menu() {
 function readtrack_settings_page() {
     if (isset($_POST['readtrack_text']) && check_admin_referer('readtrack_save_settings')) {
         $new_text = sanitize_text_field(wp_unslash($_POST['readtrack_text']));
-        file_put_contents(READTRACK_CONFIG_FILE, $new_text);
+        update_option('readtrack_custom_text', $new_text);
         echo '<div class="updated"><p>Settings saved.</p></div>';
     }
 
@@ -89,7 +85,9 @@ function readtrack_settings_page() {
         <h1>ReadTrack Settings</h1>
         <form method="post">
             <?php wp_nonce_field('readtrack_save_settings'); ?>
-            <label for="readtrack_text">Text displayed above post content (use <code>%minutes%</code> as placeholder):</label><br>
+            <label for="readtrack_text">
+                Text displayed above post content (use <code>%minutes%</code> as placeholder):
+            </label><br>
             <input type="text" name="readtrack_text" id="readtrack_text"
                    value="<?php echo esc_attr($current_text); ?>" style="width: 100%; max-width: 500px;"><br><br>
             <input type="submit" class="button button-primary" value="Save Changes">

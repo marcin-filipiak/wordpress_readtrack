@@ -1,12 +1,12 @@
 === ReadTrack ===
-Contributors: marcinfilipiak
-Tags: reading time, progress bar, estimated reading time, UX, readability
-Requires at least: 5.8
-Tested up to: 6.8
-Requires PHP: 7.2
-Stable tag: 1.1
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Contributors: marcinfilipiak  
+Tags: reading time, progress bar, estimated reading time, UX, readability  
+Requires at least: 5.8  
+Tested up to: 6.8  
+Requires PHP: 7.2  
+Stable tag: 1.2  
+License: GPLv2 or later  
+License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
 Adds a reading progress bar and an estimated reading time above each single post.
 
@@ -21,6 +21,10 @@ You can fully customize the text shown before the post using a settings page in 
 `⏱️ Estimated reading time: %minutes% min`
 
 Simply place `%minutes%` in your message to dynamically show the calculated reading time.
+
+**New in version 1.2:**
+- The plugin now uses the WordPress database (via `get_option()` / `update_option()`) instead of saving configuration to a file in the plugin folder.
+- This ensures full compatibility with WordPress.org guidelines and multisite installations.
 
 == Installation ==
 
@@ -40,21 +44,17 @@ Currently, it only affects single blog posts (`is_single()`). You can modify the
 = Is JavaScript required? =
 Yes, JavaScript is used to update the scroll progress bar in real time.
 
-== Screenshots ==
-
-1. Reading time and progress bar above a post.
-2. Plugin settings screen in admin panel.
 
 == Changelog ==
+
+= 1.2 =
+* Configuration is now saved in the WordPress options table (no more writing to plugin files)
+* Improved compatibility with WordPress.org plugin guidelines
 
 = 1.1 =
 * English translation of plugin code and admin panel
 * First public version with settings page and config file
 
-== Upgrade Notice ==
-
-= 1.1 =
-Updated plugin with English admin interface and improved compatibility.
 
 == License ==
 
