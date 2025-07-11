@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="readtrack.jpg" alt="LocalPoint logo" width="300"/>
+</p>
+
 # ReadTrack
 
 **ReadTrack** is a lightweight WordPress plugin that improves readability and user engagement by adding:
