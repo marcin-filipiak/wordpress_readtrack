@@ -36,6 +36,10 @@ Estimated reading time: %minutes% minutes
 - WordPress 5.8 or higher
 - PHP 7.2 or higher
 
+## Links
+
+You can download also from Wordpress Plugins: https://wordpress.org/plugins/readtrack/
+
 ## License
 
 This plugin is licensed under the [GPL v2 or later](https://www.gnu.org/licenses/gpl-2.0.html).
