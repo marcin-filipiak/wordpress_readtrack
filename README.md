@@ -47,5 +47,8 @@ This plugin is licensed under the [GPL v2 or later](https://www.gnu.org/licenses
 ---
 
 **Author:** [Marcin Filipiak](https://github.com/marcin-filipiak)  
-**Plugin Homepage:** [GitHub Repository](https://github.com/marcin-filipiak/wordpress_readtrack)
+
+**Plugin Homepage:** https://github.com/marcin-filipiak/wordpress_readtrack
+
+**Plugin Wordpress Lib:** https://wordpress.org/plugins/readtrack/
 
